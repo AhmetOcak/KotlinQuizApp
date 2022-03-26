@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="answer1">Ankara</string>
+    <string name="answer2">Bill Gates</string>
+    <string name="answer3">6</string>
+    <string name="answer4">Batman</string>
+    <string name="answer5">1980</string>
+    <string name="answer6">325</string>
+    <string name="answer7">Queen</string>
+    <string name="answer8">Yuri Gagarin</string>
+    <string name="answer9">Galatasaray</string>
+    <string name="answer10">Germany</string>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="question1">
+        <item>İstanbul</item>
+        <item>İzmir</item>
+        <item>Ankara</item>
+        <item>Antalya</item>
+    </string-array>
+
+    <string-array name="question2">
+        <item>Bill Gates</item>
+        <item>Jeff Bezos</item>
+        <item>Elon Musk</item>
+        <item>Jack Ma</item>
+    </string-array>
+
+    <string-array name="question3">
+        <item>8</item>
+        <item>7</item>
+        <item>6</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="question4">
+        <item>Hulk</item>
+        <item>Batman</item>
+        <item>Thor</item>
+        <item>Thanos</item>
+    </string-array>
+
+    <string-array name="question5">
+        <item>1980</item>
+        <item>1981</item>
+        <item>1985</item>
+        <item>1990</item>
+    </string-array>
+
+    <string-array name="question6">
+        <item>300</item>
+        <item>425</item>
+        <item>215</item>
+        <item>325</item>
+    </string-array>
+
+    <string-array name="question7">
+        <item>The Beatles</item>
+        <item>Black Sabbath</item>
+        <item>Queen</item>
+        <item>Coldplay</item>
+    </string-array>
+
+    <string-array name="question8">
+        <item>John Glen</item>
+        <item>Sally Ride</item>
+        <item>Neil Armstrong</item>
+        <item>Yuri Gagarin</item>
+    </string-array>
+
+    <string-array name="question9">
+        <item>Fenerbahçe</item>
+        <item>Galatasaray</item>
+        <item>Beşiktaş</item>
+        <item>Trabzonspor</item>
+    </string-array>
+
+    <string-array name="question10">
+        <item>Argentina</item>
+        <item>Brazil</item>
+        <item>Germany</item>
+        <item>France</item>
+    </string-array>
+</resources>

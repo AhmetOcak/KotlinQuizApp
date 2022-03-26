@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="question1">where is the capital of Turkey ?</string>
+    <string name="question1">Where is the capital of Turkey ?</string>
     <string name="question2">Who is the founder of Microsoft ?</string>
     <string name="question3">How many years did world war 2 last ?</string>
     <string name="question4">Which of the following is a city in Turkey ?</string>

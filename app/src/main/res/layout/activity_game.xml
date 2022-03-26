@@ -30,7 +30,6 @@
                 android:indeterminate="false"
                 android:indeterminateOnly="false"
                 android:max="100"
-                android:progress="25"
                 android:progressBackgroundTint="@color/orange"
                 android:progressTint="@color/dark_red"
                 app:layout_constraintBottom_toTopOf="@+id/question"
