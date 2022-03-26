@@ -1,13 +1,14 @@
 package com.example.kotlinquizapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
-import androidx.core.os.HandlerCompat.postDelayed
 import com.example.kotlinquizapp.data.DataSource
 import com.example.kotlinquizapp.databinding.ActivityGameBinding
 
@@ -18,7 +19,6 @@ class GameActivity : AppCompatActivity() {
     private var s = 0
     private val handler = Handler(Looper.getMainLooper())
     private var correct = 0
-    private var wrong = 0
     private var progressBarStatus = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class GameActivity : AppCompatActivity() {
         binding.answer4.text = resources.getStringArray(data.loadAnswerOptions()[s])[3]
 
         Thread(Runnable {
-            while (progressBarStatus < 100) {
+            while (true) {
                 progressBarStatus += 1
 
                 handler.post {
@@ -46,11 +46,11 @@ class GameActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
 
-                if(progressBarStatus == 100) {
+                if(progressBarStatus >= 100) {
                     this.runOnUiThread(Runnable {
                         uptadeView()
+                        binding.progressBar.progress = progressBarStatus
                     })
-                    progressBarStatus = 0
                 }
             }
         }).start()
@@ -60,20 +60,31 @@ class GameActivity : AppCompatActivity() {
         val userAnswer = findViewById<TextView>(view.id).text.toString()
 
         if (userAnswer == resources.getString(data.loadAnswers()[s])) {
-            Log.e("e", "true")
-            uptadeView()
+            correct += 1
+            findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.green))
+            handler.postDelayed({
+                findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.white))
+                uptadeView()
+            }, 500)
         } else {
-            wrong += 1
-            Log.e("e", "false")
+            progressBarStatus += 15
+            findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.red))
+            handler.postDelayed({
+                findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.white))
+            }, 500)
         }
     }
 
     private fun uptadeView() {
+        progressBarStatus = 0
         s += 1
-        correct += 1
-        if (s == 10) s = 0
-
-        Log.e("q", s.toString())
+        if (s == 10) {
+            binding.cardview.visibility = View.INVISIBLE
+            s = 0
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra(resources.getString(R.string.correctAnswers), correct)
+            startActivity(intent)
+        }
 
         binding.question.text = resources.getString(data.loadQuestions()[s])
         binding.answer1.text = resources.getStringArray(data.loadAnswerOptions()[s])[0]
