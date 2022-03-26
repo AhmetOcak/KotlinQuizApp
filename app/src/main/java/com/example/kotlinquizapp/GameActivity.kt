@@ -33,7 +33,7 @@ class GameActivity : AppCompatActivity() {
         binding.answer4.text = resources.getStringArray(data.loadAnswerOptions()[s])[3]
 
         Thread(Runnable {
-            while (true) {
+            while (s < 10) {
                 progressBarStatus += 1
 
                 handler.post {
@@ -80,16 +80,15 @@ class GameActivity : AppCompatActivity() {
         s += 1
         if (s == 10) {
             binding.cardview.visibility = View.INVISIBLE
-            s = 0
             val intent = Intent(this, ResultActivity::class.java)
             intent.putExtra(resources.getString(R.string.correctAnswers), correct)
             startActivity(intent)
+        }else {
+            binding.question.text = resources.getString(data.loadQuestions()[s])
+            binding.answer1.text = resources.getStringArray(data.loadAnswerOptions()[s])[0]
+            binding.answer2.text = resources.getStringArray(data.loadAnswerOptions()[s])[1]
+            binding.answer3.text = resources.getStringArray(data.loadAnswerOptions()[s])[2]
+            binding.answer4.text = resources.getStringArray(data.loadAnswerOptions()[s])[3]
         }
-
-        binding.question.text = resources.getString(data.loadQuestions()[s])
-        binding.answer1.text = resources.getStringArray(data.loadAnswerOptions()[s])[0]
-        binding.answer2.text = resources.getStringArray(data.loadAnswerOptions()[s])[1]
-        binding.answer3.text = resources.getStringArray(data.loadAnswerOptions()[s])[2]
-        binding.answer4.text = resources.getStringArray(data.loadAnswerOptions()[s])[3]
     }
 }

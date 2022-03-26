@@ -19,6 +19,8 @@ class ResultActivity : AppCompatActivity() {
 
         correctAnswers = intent.getIntExtra(resources.getString(R.string.correctAnswers), 0)
         emptyAnswers = 10 - correctAnswers
+
+        Log.e("q", "created")
     }
 
     override fun onBackPressed() {
