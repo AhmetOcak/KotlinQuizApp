@@ -10,4 +10,6 @@
     <color name="cream">#FFDBC5</color>
     <color name="dark_purple">#2E112D</color>
     <color name="grey">#91908c</color>
+    <color name="dark_red">#7D002F</color>
+    <color name="orange">#EE4339</color>
 </resources>
