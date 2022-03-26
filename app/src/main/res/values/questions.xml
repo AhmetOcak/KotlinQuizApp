@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="question1">where is the capital of Turkey ?</string>
+    <string name="question2">Who is the founder of Microsoft ?</string>
+    <string name="question3">How many years did world war 2 last ?</string>
+    <string name="question4">Which of the following is a city in Turkey ?</string>
+    <string name="question5">When was the first star wars movie released ?</string>
+    <string name="question6">5 + 5 * (10 / 2 + (23 * 3) - 10) = ?</string>
+    <string name="question7">Which band does the song "We are the champions" belong to ?</string>
+    <string name="question8">Who is the first person to go into space ?</string>
+    <string name="question9">Which of the following teams has won the champions league ?</string>
+    <string name="question10">Which country won the 2014 World Cup ?</string>
+</resources>
