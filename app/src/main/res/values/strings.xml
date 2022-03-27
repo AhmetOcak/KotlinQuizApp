@@ -5,4 +5,7 @@
     <string name="question">question</string>
     <string name="correctAnswers">correctAnswers</string>
     <string name="wrongAnswers">wrongAnswers</string>
+    <string name="correct">Correct: %d</string>
+    <string name="empty">Empty: %d</string>
+    <string name="your_result">Your Result</string>
 </resources>

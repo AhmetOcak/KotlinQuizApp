@@ -46,7 +46,7 @@ class GameActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
 
-                if(progressBarStatus >= 100) {
+                if(progressBarStatus >= 50) {
                     this.runOnUiThread(Runnable {
                         uptadeView()
                         binding.progressBar.progress = progressBarStatus
