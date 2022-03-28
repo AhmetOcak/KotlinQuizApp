@@ -37,7 +37,7 @@ class GameActivity : AppCompatActivity() {
         binding.answer4.text = resources.getStringArray(data.loadAnswerOptions()[0])[3]
 
         Thread(Runnable {
-            while (viewModel.s.value!! < 10) {
+            while (viewModel.s < 10) {
                 viewModel.increaseProgressBarStatus(false)
 
                 handler.post {
@@ -68,7 +68,7 @@ class GameActivity : AppCompatActivity() {
     fun answerButton(view: View) {
         val userAnswer = findViewById<TextView>(view.id).text.toString()
 
-        if (userAnswer == resources.getString(data.loadAnswers()[viewModel.s.value!!])) {
+        if (userAnswer == resources.getString(data.loadAnswers()[viewModel.s])) {
             viewModel.increaseCorrect()
             findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.green))
             buttonIsClickable(false)
@@ -92,21 +92,21 @@ class GameActivity : AppCompatActivity() {
         viewModel.reinitializeProgressBar()
         viewModel.increaseS()
 
-        if (viewModel.s.value!! == 10) {
+        if (viewModel.s == 10) {
             binding.cardview.visibility = View.INVISIBLE
             val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra(resources.getString(R.string.correctAnswers), viewModel.correct.value)
+            intent.putExtra(resources.getString(R.string.correctAnswers), viewModel.correct)
             startActivity(intent)
         } else {
-            binding.question.text = resources.getString(data.loadQuestions()[viewModel.s.value!!])
+            binding.question.text = resources.getString(data.loadQuestions()[viewModel.s])
             binding.answer1.text =
-                resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[0]
+                resources.getStringArray(data.loadAnswerOptions()[viewModel.s])[0]
             binding.answer2.text =
-                resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[1]
+                resources.getStringArray(data.loadAnswerOptions()[viewModel.s])[1]
             binding.answer3.text =
-                resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[2]
+                resources.getStringArray(data.loadAnswerOptions()[viewModel.s])[2]
             binding.answer4.text =
-                resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[3]
+                resources.getStringArray(data.loadAnswerOptions()[viewModel.s])[3]
         }
     }
 

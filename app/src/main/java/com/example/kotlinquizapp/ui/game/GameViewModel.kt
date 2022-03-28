@@ -8,11 +8,11 @@ import androidx.lifecycle.ViewModel
 
 class GameViewModel :ViewModel() {
 
-    private var _s = MutableLiveData(0)
-    val s : LiveData<Int> get() = _s
+    private var _s = 0
+    val s : Int get() = _s
 
-    private var _correct = MutableLiveData(0)
-    val correct : LiveData<Int> get() = _correct
+    private var _correct = 0
+    val correct : Int get() = _correct
 
     private var _progressBarStatus = 0
     val progressBarStatus : Int get() = _progressBarStatus
@@ -28,15 +28,15 @@ class GameViewModel :ViewModel() {
     }
 
     fun increaseCorrect() {
-        _correct.value = (_correct.value)?.inc()
+        _correct = (_correct)?.inc()
     }
 
     fun increaseS() {
-        _s.value = (_s.value)?.inc()
+        _s = (_s)?.inc()
     }
 
     fun killTheThread() {
-        _s.value = 10
+        _s = 10
     }
 
     fun reinitializeProgressBar() {
