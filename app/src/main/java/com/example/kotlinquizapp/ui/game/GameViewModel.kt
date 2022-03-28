@@ -1,10 +1,12 @@
 package com.example.kotlinquizapp.ui.game
 
+import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.kotlinquizapp.R
 
 class GameViewModel :ViewModel() {
 
@@ -43,13 +45,4 @@ class GameViewModel :ViewModel() {
         _progressBarStatus = 0
     }
 
-    fun reinitializeData() {
-        _s.value = 0
-        _progressBarStatus = 0
-        _correct.value = 0
-    }
-
-    fun reinitializeS() {
-        _s.value = 0
-    }
 }

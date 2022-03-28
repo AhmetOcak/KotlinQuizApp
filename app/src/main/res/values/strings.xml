@@ -8,4 +8,5 @@
     <string name="correct">Correct: %d</string>
     <string name="empty">Empty: %d</string>
     <string name="your_result">Your Result</string>
+    <string name="button">Button</string>
 </resources>

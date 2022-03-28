@@ -59,7 +59,7 @@
             <Button
                 android:id="@+id/answer1"
                 style="@style/button_style"
-                android:text="button"
+                android:text="@string/button"
                 app:layout_constraintBottom_toTopOf="@+id/answer2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -67,7 +67,7 @@
             <Button
                 android:id="@+id/answer2"
                 style="@style/button_style"
-                android:text="Button"
+                android:text="@string/button"
                 app:layout_constraintBottom_toTopOf="@+id/answer3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -75,7 +75,7 @@
             <Button
                 android:id="@+id/answer3"
                 style="@style/button_style"
-                android:text="Button"
+                android:text="@string/button"
                 app:layout_constraintBottom_toTopOf="@+id/answer4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -84,7 +84,7 @@
                 android:id="@+id/answer4"
                 style="@style/button_style"
                 android:layout_marginBottom="32dp"
-                android:text="Button"
+                android:text="@string/button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"

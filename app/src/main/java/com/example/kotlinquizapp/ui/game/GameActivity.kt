@@ -71,16 +71,20 @@ class GameActivity : AppCompatActivity() {
         if (userAnswer == resources.getString(data.loadAnswers()[viewModel.s.value!!])) {
             viewModel.increaseCorrect()
             findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.green))
+            buttonIsClickable(false)
             handler.postDelayed({
+                buttonIsClickable(true)
                 findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.white))
                 uptadeView()
             }, 500)
         } else {
             viewModel.increaseProgressBarStatus(true)
             findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.red))
+            buttonIsClickable(false)
             handler.postDelayed({
+                buttonIsClickable(true)
                 findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.white))
-            }, 500)
+            }, 250)
         }
     }
 
@@ -103,6 +107,20 @@ class GameActivity : AppCompatActivity() {
                 resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[2]
             binding.answer4.text =
                 resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[3]
+        }
+    }
+
+    private fun buttonIsClickable(isClickable: Boolean) {
+        if (!isClickable) {
+            binding.answer1.isClickable = false
+            binding.answer2.isClickable = false
+            binding.answer3.isClickable = false
+            binding.answer4.isClickable = false
+        } else {
+            binding.answer1.isClickable = true
+            binding.answer2.isClickable = true
+            binding.answer3.isClickable = true
+            binding.answer4.isClickable = true
         }
     }
 }
