@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlinquizapp.databinding.ActivityMainBinding
+import com.example.kotlinquizapp.ui.game.GameActivity
 
 class MainActivity : AppCompatActivity() {
 

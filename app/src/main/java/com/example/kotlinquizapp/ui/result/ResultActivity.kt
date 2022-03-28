@@ -1,9 +1,10 @@
-package com.example.kotlinquizapp
+package com.example.kotlinquizapp.ui.result
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import com.example.kotlinquizapp.MainActivity
+import com.example.kotlinquizapp.R
 import com.example.kotlinquizapp.databinding.ActivityResultBinding
 
 class ResultActivity : AppCompatActivity() {

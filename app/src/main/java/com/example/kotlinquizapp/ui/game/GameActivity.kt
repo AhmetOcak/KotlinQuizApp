@@ -1,4 +1,4 @@
-package com.example.kotlinquizapp
+package com.example.kotlinquizapp.ui.game
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,35 +9,39 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.viewModels
+import com.example.kotlinquizapp.R
+import com.example.kotlinquizapp.ui.result.ResultActivity
 import com.example.kotlinquizapp.data.DataSource
 import com.example.kotlinquizapp.databinding.ActivityGameBinding
 
+
 class GameActivity : AppCompatActivity() {
+
+    private val viewModel: GameViewModel by viewModels()
 
     private lateinit var binding: ActivityGameBinding
     private val data get() = DataSource()
-    private var s = 0
+
     private val handler = Handler(Looper.getMainLooper())
-    private var correct = 0
-    private var progressBarStatus = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.question.text = resources.getString(data.loadQuestions()[s])
-        binding.answer1.text = resources.getStringArray(data.loadAnswerOptions()[s])[0]
-        binding.answer2.text = resources.getStringArray(data.loadAnswerOptions()[s])[1]
-        binding.answer3.text = resources.getStringArray(data.loadAnswerOptions()[s])[2]
-        binding.answer4.text = resources.getStringArray(data.loadAnswerOptions()[s])[3]
+        binding.question.text = resources.getString(data.loadQuestions()[0])
+        binding.answer1.text = resources.getStringArray(data.loadAnswerOptions()[0])[0]
+        binding.answer2.text = resources.getStringArray(data.loadAnswerOptions()[0])[1]
+        binding.answer3.text = resources.getStringArray(data.loadAnswerOptions()[0])[2]
+        binding.answer4.text = resources.getStringArray(data.loadAnswerOptions()[0])[3]
 
         Thread(Runnable {
-            while (s < 10) {
-                progressBarStatus += 1
-                Log.e("e", "thread working")
+            while (viewModel.s.value!! < 10) {
+                viewModel.increaseProgressBarStatus(false)
+
                 handler.post {
-                    binding.progressBar.progress = progressBarStatus
+                    binding.progressBar.progress = viewModel.progressBarStatus
                 }
 
                 try {
@@ -46,10 +50,10 @@ class GameActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
 
-                if(progressBarStatus >= 50) {
+                if (viewModel.progressBarStatus >= 50) {
                     this.runOnUiThread(Runnable {
                         uptadeView()
-                        binding.progressBar.progress = progressBarStatus
+                        binding.progressBar.progress = viewModel.progressBarStatus
                     })
                 }
             }
@@ -58,21 +62,21 @@ class GameActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        s = 10
+        viewModel.killTheThread()
     }
 
     fun answerButton(view: View) {
         val userAnswer = findViewById<TextView>(view.id).text.toString()
 
-        if (userAnswer == resources.getString(data.loadAnswers()[s])) {
-            correct += 1
+        if (userAnswer == resources.getString(data.loadAnswers()[viewModel.s.value!!])) {
+            viewModel.increaseCorrect()
             findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.green))
             handler.postDelayed({
                 findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.white))
                 uptadeView()
             }, 500)
         } else {
-            progressBarStatus += 15
+            viewModel.increaseProgressBarStatus(true)
             findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.red))
             handler.postDelayed({
                 findViewById<Button>(view.id).setBackgroundColor(resources.getColor(R.color.white))
@@ -81,19 +85,24 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun uptadeView() {
-        progressBarStatus = 0
-        s += 1
-        if (s == 10) {
+        viewModel.reinitializeProgressBar()
+        viewModel.increaseS()
+
+        if (viewModel.s.value!! == 10) {
             binding.cardview.visibility = View.INVISIBLE
             val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra(resources.getString(R.string.correctAnswers), correct)
+            intent.putExtra(resources.getString(R.string.correctAnswers), viewModel.correct.value)
             startActivity(intent)
-        }else {
-            binding.question.text = resources.getString(data.loadQuestions()[s])
-            binding.answer1.text = resources.getStringArray(data.loadAnswerOptions()[s])[0]
-            binding.answer2.text = resources.getStringArray(data.loadAnswerOptions()[s])[1]
-            binding.answer3.text = resources.getStringArray(data.loadAnswerOptions()[s])[2]
-            binding.answer4.text = resources.getStringArray(data.loadAnswerOptions()[s])[3]
+        } else {
+            binding.question.text = resources.getString(data.loadQuestions()[viewModel.s.value!!])
+            binding.answer1.text =
+                resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[0]
+            binding.answer2.text =
+                resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[1]
+            binding.answer3.text =
+                resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[2]
+            binding.answer4.text =
+                resources.getStringArray(data.loadAnswerOptions()[viewModel.s.value!!])[3]
         }
     }
 }
