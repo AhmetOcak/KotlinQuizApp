@@ -35,7 +35,7 @@ class GameActivity : AppCompatActivity() {
         Thread(Runnable {
             while (s < 10) {
                 progressBarStatus += 1
-
+                Log.e("e", "thread working")
                 handler.post {
                     binding.progressBar.progress = progressBarStatus
                 }
@@ -54,6 +54,11 @@ class GameActivity : AppCompatActivity() {
                 }
             }
         }).start()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        s = 10
     }
 
     fun answerButton(view: View) {
