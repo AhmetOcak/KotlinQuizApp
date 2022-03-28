@@ -1,12 +1,10 @@
 package com.example.kotlinquizapp.ui.game
 
-import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.kotlinquizapp.R
 
 class GameViewModel :ViewModel() {
 

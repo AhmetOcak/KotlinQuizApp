@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/empty"
+                android:id="@+id/wrong"
                 style="@style/textview_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/correct"
-                app:layout_constraintBottom_toTopOf="@+id/empty"
+                app:layout_constraintBottom_toTopOf="@+id/wrong"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 

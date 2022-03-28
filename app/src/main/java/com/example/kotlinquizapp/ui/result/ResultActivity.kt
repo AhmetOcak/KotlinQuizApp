@@ -11,7 +11,7 @@ class ResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultBinding
     private var correctAnswers = 0
-    private var emptyAnswers = 0
+    private var wrongAnswers = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,10 +19,10 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         correctAnswers = intent.getIntExtra(resources.getString(R.string.correctAnswers), 0)
-        emptyAnswers = 10 - correctAnswers
+        wrongAnswers = 10 - correctAnswers
 
         binding.correct.text = getString(R.string.correct, correctAnswers)
-        binding.empty.text = getString(R.string.empty, emptyAnswers)
+        binding.wrong.text = getString(R.string.empty, wrongAnswers)
     }
 
     override fun onBackPressed() {
