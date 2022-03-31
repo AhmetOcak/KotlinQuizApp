@@ -45,7 +45,7 @@ class GameActivity : AppCompatActivity() {
                 }
 
                 try {
-                    Thread.sleep(100)
+                    Thread.sleep(200)
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
                 }
