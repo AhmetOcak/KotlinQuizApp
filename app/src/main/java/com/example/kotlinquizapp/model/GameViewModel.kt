@@ -1,4 +1,4 @@
-package com.example.kotlinquizapp.ui.game
+package com.example.kotlinquizapp.model
 
 import android.os.Handler
 import android.os.Looper

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -14,6 +13,7 @@ import com.example.kotlinquizapp.R
 import com.example.kotlinquizapp.ui.result.ResultActivity
 import com.example.kotlinquizapp.data.DataSource
 import com.example.kotlinquizapp.databinding.ActivityGameBinding
+import com.example.kotlinquizapp.model.GameViewModel
 
 
 class GameActivity : AppCompatActivity() {
