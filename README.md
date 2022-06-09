@@ -1,4 +1,4 @@
-# KotlinQuizApp
+# KotlinQuizApp 🤓🤓
 
 
 ![](https://media.giphy.com/media/eT2eAGRYCisL0QTn3K/giphy.gif)
